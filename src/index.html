@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MRR Triangle</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div id="container">
+        <h1>[MRR Triangle]</h1>
+        <form>
+            <div id="speed_group">
+                <div class="pair">
+                    <label class="paired" for="dia">Tool &#8960;:</label>
+                    <input class="paired" type="text" placeholder="dia" id="dia" size="5" autofocus="autofocus" />
+                </div>
+                <div class="pair">
+                    <label class="paired" for="sfm">SFM:</label>
+                    <input class="paired" type="text" placeholder="sfm" id="sfm" size="5" autofocus="autofocus" />
+                </div>
+                <div class="pair">
+                    <label class="paired" for="flutes">Flutes:</label>
+                    <input class="paired" type="text" placeholder="flutes" id="flutes" size="3" autofocus="autofocus" />
+                </div>
+                <div class="pair">
+                    <label class="paired" for="ipt">IPT:</label>
+                    <input class="paired" type="text" placeholder="ipt" id="ipt" size="6" autofocus="autofocus" />
+                </div>
+            </div>
+
+            <div id="triangle">
+                <div class="pair">
+                    <label class="paired" for="ipm">IPM:</label>
+                    <label class="paired" id="ipm"></label>
+                </div>
+
+            </div>
+        </form>
+        <div class="note" id="diameter_note"></div>
+        <div class="item">
+            RPM: <label title="(SFM/diameter)*3.8197.  See p. 1084 Machinery's Handbook 31st edition." id="rpm"></label>
+        </div>
+    </div>
+    <script src="./mrr.js"></script>
+</body>
+
+</html>

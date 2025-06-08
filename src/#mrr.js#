@@ -1,0 +1,13 @@
+
+var possibleEvents = new Set(["input", "onpropertychange", "keyup", "change", "paste"]);
+
+
+window.onload = function () {
+  setLabel()
+  alert("hello")
+}
+
+function setLabel(id, value) {
+  var output = document.getElementById(id);
+  output.innerHTML = String(value);
+}
