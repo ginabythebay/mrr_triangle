@@ -10,7 +10,7 @@
 <body>
     <div id="container">
         <h1>[MRR Triangle]</h1>
-        <form>
+        <form id="speed_form">
             <div id="speed_group">
                 <div class="pair">
                     <label class="paired" for="dia">Tool &#8960;:</label>
@@ -30,14 +30,36 @@
                 </div>
             </div>
 
-            <div id="triangle">
+        </form>
+
+        <br>
+            <div class="triangle" id="triangle">
+                <div class="pair"></div>
                 <div class="pair">
                     <label class="paired" for="ipm">IPM:</label>
                     <label class="paired" id="ipm"></label>
                 </div>
+                <div class="grid_spacer"></div>
+
+                <div class="pair"></div>
+                <div class="pair">
+                    <label class="paired" for="mrr">MRR:</label>
+                    <label class="paired" id="mrr"></label>
+                </div>
+                <div class="pair"></div>
+
+                <div class="grid_spacer"></div>
+                <div class="pair">
+                    <label class="paired" for="radial">Radial</label>
+                    <input class="paired" type="text" placeholder="radial" id="radial" size="4" autofocus="autofocus" />
+                </div>
+                <div class="pair"></div>
+                <div class="pair">
+                    <label class="paired" for="axial">Axial</label>
+                    <input class="paired" type="text" placeholder="axial" id="axial" size="4" autofocus="autofocus" />
+                </div>
 
             </div>
-        </form>
         <div class="note" id="diameter_note"></div>
         <div class="item">
             RPM: <label title="(SFM/diameter)*3.8197.  See p. 1084 Machinery's Handbook 31st edition." id="rpm"></label>

@@ -19,12 +19,6 @@ html {
     color: #fff;
   }
 
-  select{
-    background-color: #46057c;
-    font-family: "Bree Serif", Arial, sans-serif;
-    color: #eee;
-  }
-
   h1, h2 {
     margin: 0 0 2rem 0;
     padding: 2rem;
@@ -58,10 +52,6 @@ html {
     color: #fff;
   }
   input[type="text"]::placeholder { color: rgba(255, 255, 255, 0.3); }
-  input[type='checkbox']{
-      appearance: none;
-      display: none;
-  }
 
   #container {
     /* width: 40rem; */
@@ -91,14 +81,26 @@ html {
     font-size: 1.6rem;
   }
 
+  .triangle {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .grid_spacer {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      height: 6.0rem
+  }
+
   #rpm {
+      display: block;
       min-width: 3em;
-      text-align: end;
+      text-align: start;
   }
 
   #ipm {
       min-width: 2.5em;
-      text-align: end;
+      text-align: start;
   }
 
   #depth {
