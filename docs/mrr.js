@@ -23,21 +23,27 @@ window.onload = function () {
 
     possibleEvents.forEach(function (eventName) {
       diaInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "dia")
         calculator.calc();
       });
       sfmInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "sfm")
         calculator.calc();
       });
       flutesInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "flutes")
         calculator.calc();
       });
       iptInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "ipt")
         calculator.calc();
       });
       radialInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "radial")
         calculator.calc();
       });
       axialInput.addEventListener(eventName, function () {
+        saveParam(diaInput, "axial")
         calculator.calc();
       });
   });
@@ -99,6 +105,17 @@ function initValue(element, params, key) {
   if (params.has(key)) {
     element.value = params.get(key);
   }
+}
+
+function saveParam(element, key) {
+  const url = new URL(window.location.href);
+  let value = Number(element.value)
+  if (value) {
+    url.searchParams.set(key, element.value);
+  } else {
+    url.searchParams.delete(key);
+  }
+  window.history.pushState({ path: url.href }, '', url.href);
 }
 
 function fixedDisplayNum(value, precision) {
