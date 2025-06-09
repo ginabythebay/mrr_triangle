@@ -9,9 +9,18 @@ window.onload = function () {
   const iptInput = document.getElementById("ipt")
   const radialInput = document.getElementById("radial")
   const axialInput = document.getElementById("axial")
+
+  const urlParams = new URLSearchParams(window.location.search);
+  initValue(diaInput, urlParams, "dia")
+  initValue(sfmInput, urlParams, "sfm")
+  initValue(flutesInput, urlParams, "flutes")
+  initValue(iptInput, urlParams, "ipt")
+  initValue(radialInput, urlParams, "radial")
+  initValue(axialInput, urlParams, "axial")
+
   const calculator = new Calculator(
       diaInput, sfmInput, flutesInput, iptInput, radialInput, axialInput);
-  setLabel("rpm", "---")
+
     possibleEvents.forEach(function (eventName) {
       diaInput.addEventListener(eventName, function () {
         calculator.calc();
@@ -60,6 +69,8 @@ function () {
     if (dia && sfm) {
       rpm = Math.round(3.8197 / dia * sfm);
       setLabel("rpm", rpm)
+    } else {
+      setLabel("rpm", "---")
     }
 
     let ipm = 0
@@ -83,6 +94,12 @@ function () {
   }
   return Calculator;
 }();
+
+function initValue(element, params, key) {
+  if (params.has(key)) {
+    element.value = params.get(key);
+  }
+}
 
 function fixedDisplayNum(value, precision) {
   if (Number.isNaN(value) || value === Infinity || !value) {
