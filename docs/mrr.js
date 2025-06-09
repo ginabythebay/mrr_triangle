@@ -33,6 +33,7 @@ window.onload = function () {
       });
   });
 
+  calculator.calc();
 }
 
 const Calculator =
@@ -76,6 +77,8 @@ function () {
     if (radial && axial && ipm) {
       const mrr = radial * axial * ipm
       setLabel("mrr", fixedDisplayNum(mrr, 2))
+    } else {
+      setLabel("mrr", "---")
     }
   }
   return Calculator;
