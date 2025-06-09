@@ -7,7 +7,6 @@ window.onload = function () {
   const sfmInput = document.getElementById("sfm")
   const flutesInput = document.getElementById("flutes")
   const iptInput = document.getElementById("ipt")
-  debugger;
   const radialInput = document.getElementById("radial")
   const axialInput = document.getElementById("axial")
   const calculator = new Calculator(
