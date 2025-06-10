@@ -70,8 +70,8 @@ function () {
 
   Calculator.prototype.calc = function () {
     let rpm = 0
-    const dia = Number(this.diameterElement.value)
-    const sfm = Number(this.sfmElement.value);
+    const dia = Inches(this.diameterElement.value)
+    const sfm = Inches(this.sfmElement.value);
     if (dia && sfm) {
       rpm = Math.round(3.8197 / dia * sfm);
       setLabel("rpm", rpm)
@@ -80,8 +80,8 @@ function () {
     }
 
     let ipm = 0
-    const flutes = Number(this.flutesElement.value)
-    const ipt = Number(this.iptElement.value)
+    const flutes = Inches(this.flutesElement.value)
+    const ipt = Inches(this.iptElement.value)
     if (rpm && flutes && ipt) {
       ipm = rpm * ipt * flutes
       setLabel("ipm", fixedDisplayNum(ipm, 1))
@@ -89,8 +89,8 @@ function () {
       setLabel("ipm", "--")
     }
 
-    const radial = Number(this.radialElement.value)
-    const axial = Number(this.axialElement.value)
+    const radial = Inches(this.radialElement.value)
+    const axial = Inches(this.axialElement.value)
     if (radial && axial && ipm) {
       const mrr = radial * axial * ipm
       setLabel("mrr", fixedDisplayNum(mrr, 2))
@@ -109,7 +109,7 @@ function initValue(element, params, key) {
 
 function saveParam(element, key) {
   const url = new URL(window.location.href);
-  let value = Number(element.value)
+  let value = Inches(element.value)
   if (value) {
     url.searchParams.set(key, element.value);
   } else {
