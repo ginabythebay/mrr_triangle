@@ -51,10 +51,8 @@ html {
       font-size: 2.4rem;
     background: transparent;
     color: #eee;
-
       outline: 0;
       border: 0;
-
       transition: all ease-out 0.3s;
   }
   input[type="text"]:focus {
@@ -138,13 +136,19 @@ html {
 
   .para {
       position: relative;
-      display: block;
       justify-content: left;
-      width: 100%;
-      height: 100%;
       margin-bottom: 1.4rem;
       font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  :link {
     color: rgba(255, 255, 255, 0.5);
+  }
+
+  .notes {
+      display: flex;
+      width: 100%;
   }
 
   .item label {
