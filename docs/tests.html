@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="qunit/qunit-2.24.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="qunit/qunit-2.24.1.js"></script>
+  <script src="linear.js"></script>
+
+  <script>
+   QUnit.module("Inches", function(hooks) {
+     QUnit.test("test invalid values", function(assert) {
+       assert.equal(Inches(""), 0)
+       assert.equal(Inches(" "), 0)
+       assert.equal(Inches("abc"), 0)
+       assert.equal(Inches(".."), 0)
+     });
+   });
+
+   QUnit.module("Inches", function(hooks) {
+     QUnit.test("test bare numbers", function(assert) {
+       assert.equal(Inches("1.0"), 1.0)
+       assert.equal(Inches(".5"), .5)
+       assert.equal(Inches("2"), 2)
+       assert.equal(Inches("2.34"), 2.34)
+     });
+   });
+
+   QUnit.module("Inches", function(hooks) {
+     QUnit.test("test fractions", function(assert) {
+       assert.equal(Inches("1 1/8"), 1.125)
+       assert.equal(Inches("5/8"), .625)
+       assert.equal(Inches("7/16"), .4375)
+     });
+   });
+
+   QUnit.module("Inches", function(hooks) {
+     QUnit.test("test mm", function(assert) {
+       assert.equal(Inches("1mm"), 0.03937007874015748)
+       assert.equal(Inches("25.4 mm"), 1.0)
+       assert.equal(Inches(".5mm"), 0.1968503937007874)
+     });
+   });
+
+  </script>
+</body>
+</html>
