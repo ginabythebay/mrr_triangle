@@ -56,6 +56,27 @@ window.onload = function () {
       });
   });
 
+  const resetBtn = document.getElementById("reset");
+  resetBtn.addEventListener("click", function () {
+    diaInput.value = "";
+    sfmInput.value = "";
+    flutesInput.value = "";
+    iptInput.value = "";
+    radialInput.value = "";
+    axialInput.value = "";
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete("dia");
+    url.searchParams.delete("sfm");
+    url.searchParams.delete("flutes");
+    url.searchParams.delete("ipt");
+    url.searchParams.delete("radial");
+    url.searchParams.delete("axial");
+    window.history.pushState({ path: url.href }, '', url.href);
+
+    calculator.calc();
+  })
+
   setTimeout(drawTriangle, 250);
   calculator.calc();
 }
