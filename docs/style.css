@@ -134,19 +134,32 @@ html {
     color: rgba(255, 255, 255, 0.5);
   }
 
-  .para {
-      position: relative;
+  p {
+    font-size: 1.6rem;
+  }
+
+  .one_note {
       justify-content: left;
-      margin-bottom: 1.4rem;
       font-size: 1.3rem;
       color: rgba(255, 255, 255, 0.5);
+      padding: 1rem;
   }
 
   :link {
-    color: rgba(255, 255, 255, 0.5);
+    color: #7c4605;
   }
 
-  .notes {
+  :visited {
+    color: #767c05;
+  }
+  #notes {
+      font-size: 1.3rem;
+      display: flex;
+      width: 100%;
+  }
+
+  #notes_line {
+      justify-content: center;
       display: flex;
       width: 100%;
   }
