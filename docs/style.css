@@ -75,10 +75,12 @@ html {
 
   .paired{
       display:block;
+      text-align: center;
   }
 
   .paired_result{
       display:block;
+      text-align: center;
       font-size: 4rem;
       line-height: 2;
       color: rgba(255, 255, 255, 0.5);
@@ -114,7 +116,7 @@ html {
 
   #ipm {
       min-width: 2.5em;
-      text-align: start;
+      text-align: center;
   }
 
   #depth {

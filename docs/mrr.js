@@ -56,6 +56,7 @@ window.onload = function () {
       });
   });
 
+  setTimeout(drawTriangle, 250);
   calculator.calc();
 }
 
@@ -138,4 +139,75 @@ function fixedDisplayNum(value, precision) {
 function setLabel(id, value) {
   const output = document.getElementById(id);
   output.innerHTML = String(value);
+}
+
+function offsetRect(r, offset) {
+  return {
+    left: r.left - offset.left,
+    top: r.top - offset.top,
+    right: r.right - offset.left,
+    bottom: r.bottom - offset.top,
+  }
+}
+
+function setLine(line, from, to) {
+   const dStr =
+      "M" +
+      (from.x      ) + "," + (from.y) + " " +
+      "L" +
+      (to.x      ) + "," + (to.y);
+  line.setAttribute("d", dStr);
+}
+
+function drawTriangle() {
+  const divIpm       = document.querySelector("#ipm_pair");
+  const divRadial       = document.querySelector("#radial_pair");
+  const divAxial       = document.querySelector("#axial_pair");
+
+  const arrowLeft = document.querySelector("#arrowLeft");
+  const arrowRight = document.querySelector("#arrowRight");
+  const arrowCenter = document.querySelector("#arrowCenter");
+
+  let ipmRect = divIpm.getBoundingClientRect();
+  let radialRect = divRadial.getBoundingClientRect();
+  let axialRect = divAxial.getBoundingClientRect();
+
+  const containerRect = document.querySelector("#container").getBoundingClientRect()
+  ipmRect = offsetRect(ipmRect, containerRect)
+  radialRect = offsetRect(radialRect, containerRect)
+  axialRect = offsetRect(axialRect, containerRect)
+  const posnIpmBtmLeft = {
+    x: ((ipmRect.right + ipmRect.left)/2 - 32),
+    y: ipmRect.bottom + 16
+  };
+  const posnIpmBtmRight = {
+    x: ((ipmRect.right + ipmRect.left)/2) + 32,
+    y: ipmRect.bottom + 16
+  };
+  const posnRadialTop = {
+    x: (radialRect.left + radialRect.right) / 2,
+    y: radialRect.top - 48,
+  };
+  const posnAxialTop = {
+    x: (axialRect.right + axialRect.left) / 2,
+    y: axialRect.top - 48,
+  }
+  const posnRadialRight = {
+    x: radialRect.right + 16,
+    y: ((radialRect.bottom + radialRect.top) / 2) - 8,
+  }
+  const posnAxialLeft = {
+    x: axialRect.left - 16,
+    y: ((axialRect.bottom + axialRect.top) / 2) - 8,
+  }
+
+  setLine(arrowLeft, posnRadialTop, posnIpmBtmLeft)
+  setLine(arrowRight, posnAxialTop, posnIpmBtmRight)
+  setLine(arrowCenter, posnRadialRight, posnAxialLeft)
+  const dStrCenter =
+      "M" +
+      (posnRadialRight.x      ) + "," + (posnRadialRight.y) + " " +
+      "L" +
+      (posnAxialLeft.x      ) + "," + (posnAxialLeft.y);
+  arrowCenter.setAttribute("d", dStrCenter);
 }
